@@ -1,0 +1,33 @@
+package:
+  name: "mklhelper"
+  version: "0.0.1"
+
+source:
+  path: /home/chillenb/src/mklhelper/dist/mklhelper-0.0.1.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake >=3.25.2
+    - make
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+  host:
+    - python
+    - scikit-build-core
+    - nanobind
+    - pkg-config
+    - pip
+    - mkl
+    - mkl-include
+    - mkl-devel =2022
+  run:
+    - python
+    - mkl
+tests:
+  - python:
+      imports:
+        - mklhelper
+        

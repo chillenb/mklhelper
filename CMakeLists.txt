@@ -64,4 +64,4 @@ nanobind_add_module(
 )
 target_link_libraries(mklhelper_ext PRIVATE MKL::MKL)
 
-install(TARGETS mklhelper_ext LIBRARY DESTINATION mklhelper)
+install(TARGETS mklhelper_ext LIBRARY DESTINATION ${SKBUILD_PROJECT_NAME})

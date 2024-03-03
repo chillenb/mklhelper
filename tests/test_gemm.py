@@ -67,7 +67,7 @@ def test_zgemm():
 
     C = np.zeros((m, n), dtype=complex)
     
-    zgemm(A, B, C, outputContig = "x")
+    zgemm(A, B, C)
 
     assert np.allclose(C, A @ B)
 
