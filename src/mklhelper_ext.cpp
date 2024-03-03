@@ -34,4 +34,9 @@ NB_MODULE(mklhelper_ext, m) {
     m.def("zgemm", __cblas_helper_gemm<std::complex<double>>, "a"_a, "b"_a, "c"_a, "alpha"_a=std::complex<double>(1.0, 0.0), "beta"_a=std::complex<double>(0.0, 0.0), "outputContig"_a='C');
     m.def("sgemm", __cblas_helper_gemm<float>, "a"_a, "b"_a, "c"_a, "alpha"_a=1.0f, "beta"_a=0.0f, "outputContig"_a='C');
     m.def("cgemm", __cblas_helper_gemm<std::complex<float>>, "a"_a, "b"_a, "c"_a, "alpha"_a=std::complex<float>(1.0f, 0.0f), "beta"_a=std::complex<float>(0.0f, 0.0f), "outputContig"_a='C');
+
+    m.def("dtrsm", __cblas_helper_trsm<double>, "a"_a, "b"_a, "alpha"_a=1.0, "uplo"_a='L', "is_unitriangular"_a=false);
+    m.def("ztrsm", __cblas_helper_trsm<std::complex<double>>, "a"_a, "b"_a, "alpha"_a=std::complex<double>(1.0, 0.0), "uplo"_a='L', "is_unitriangular"_a=false);
+    m.def("strsm", __cblas_helper_trsm<float>, "a"_a, "b"_a, "alpha"_a=1.0f, "uplo"_a='L', "is_unitriangular"_a=false);
+    m.def("ctrsm", __cblas_helper_trsm<std::complex<float>>, "a"_a, "b"_a, "alpha"_a=std::complex<float>(1.0f, 0.0f), "uplo"_a='L', "is_unitriangular"_a=false);
 }
